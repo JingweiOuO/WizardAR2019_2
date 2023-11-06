@@ -21,24 +21,26 @@ namespace SimpleCardDrawAndSpread_CardDictionary{
         {
             int cardNumber = 0;
             //藥水卡(IDNumber, Name, Score, Turn, Portion, Skill)
-            Cards.Add(new Card() { id = cardNumber++, name = "長鼻子", score = 2, turn = 3, portion = "Nose", skill = "" });           
-            Cards.Add(new Card() { id = cardNumber++, name = "巫婆鼻", score = 3, turn = 4, portion = "Nose", skill = "" });          
-            Cards.Add(new Card() { id = cardNumber++, name = "豬鼻", score = 5, turn = 6, portion = "Nose", skill = "" });
-            Cards.Add(new Card() { id = cardNumber++, name = "伏地魔", score = 4, turn = 5, portion = "Nose", skill = "" });           
-            Cards.Add(new Card() { id = cardNumber++, name = "厚道", score = 2, turn = 5, portion = "Chin", skill = "" });           
-            Cards.Add(new Card() { id = cardNumber++, name = "克蘇魯", score = 6, turn = 3, portion = "Chin", skill = "" });
-            Cards.Add(new Card() { id = cardNumber++, name = "屁屁下巴", score = 3, turn = 4, portion = "Chin", skill = "" });
-            Cards.Add(new Card() { id = cardNumber++, name = "龍角", score = 10, turn = 10, portion = "Derivative", skill = "" });
-            Cards.Add(new Card() { id = cardNumber++, name = "鹿角", score = 3, turn = 4, portion = "Derivative", skill = "" });
-            Cards.Add(new Card() { id = cardNumber++, name = "小惡魔翅膀", score = 4, turn = 5, portion = "Derivative", skill = "" });  
-            Cards.Add(new Card() { id = cardNumber++, name = "牛角", score = 2, turn = 3, portion = "Derivative", skill = "" });
-            Cards.Add(new Card() { id = cardNumber++, name = "精靈", score = 6, turn = 7, portion = "Ear", skill = "" });
-            Cards.Add(new Card() { id = cardNumber++, name = "兔子", score = 3, turn = 4, portion = "Ear", skill = "" });           
-            Cards.Add(new Card() { id = cardNumber++, name = "大耳朵", score = 2, turn = 3, portion = "Ear", skill = "" });            
-            Cards.Add(new Card() { id = cardNumber++, name = "小耳朵", score = 3, turn = 4, portion ="Ear", skill = "" });              
-            Cards.Add(new Card() { id = cardNumber++, name = "8字鬍", score = 2, turn = 3, portion = "Beard", skill = "" });            
-            Cards.Add(new Card() { id = cardNumber++, name = "希特勒鬍", score = 10, turn = 10, portion = "Beard", skill = "" });
-            Cards.Add(new Card() { id = cardNumber++, name = "山羊鬍子", score = 6, turn = 7, portion = "Beard", skill = "" });
+            Cards.Add(new Card() { id = cardNumber++, name = "LongNose", score = 2, turn = 3, portion = "Nose", skill = "" });           
+            Cards.Add(new Card() { id = cardNumber++, name = "WitchNose", score = 3, turn = 4, portion = "Nose", skill = "" });          
+            //Cards.Add(new Card() { id = cardNumber++, name = "豬鼻", score = 5, turn = 6, portion = "Nose", skill = "" });
+            //Cards.Add(new Card() { id = cardNumber++, name = "伏地魔", score = 4, turn = 5, portion = "Nose", skill = "" });           
+            Cards.Add(new Card() { id = cardNumber++, name = "KindChin", score = 2, turn = 5, portion = "Chin", skill = "" });           
+            //Cards.Add(new Card() { id = cardNumber++, name = "克蘇魯", score = 6, turn = 3, portion = "Chin", skill = "" });
+            Cards.Add(new Card() { id = cardNumber++, name = "AssChin", score = 3, turn = 4, portion = "Chin", skill = "" });
+            //Cards.Add(new Card() { id = cardNumber++, name = "龍角", score = 10, turn = 10, portion = "Derivative", skill = "" });
+            Cards.Add(new Card() { id = cardNumber++, name = "Antlers", score = 3, turn = 4, portion = "Derivative", skill = "" });
+            Cards.Add(new Card() { id = cardNumber++, name = "Wing", score = 4, turn = 5, portion = "Derivative", skill = "" });  
+            Cards.Add(new Card() { id = cardNumber++, name = "Horns", score = 2, turn = 3, portion = "Derivative", skill = "" });
+            Cards.Add(new Card() { id = cardNumber++, name = "ElfEar", score = 6, turn = 7, portion = "Ear", skill = "" });
+            Cards.Add(new Card() { id = cardNumber++, name = "RabbitEars", score = 3, turn = 4, portion = "Ear", skill = "" });           
+            Cards.Add(new Card() { id = cardNumber++, name = "BigEar", score = 2, turn = 3, portion = "Ear", skill = "" });            
+            Cards.Add(new Card() { id = cardNumber++, name = "SmallEar", score = 3, turn = 4, portion ="Ear", skill = "" });              
+            Cards.Add(new Card() { id = cardNumber++, name = "Mustache", score = 2, turn = 3, portion = "Beard", skill = "" });            
+            Cards.Add(new Card() { id = cardNumber++, name = "Hitler", score = 10, turn = 10, portion = "Beard", skill = "" });
+            //Cards.Add(new Card() { id = cardNumber++, name = "山羊鬍子", score = 6, turn = 7, portion = "Beard", skill = "" });
+            Cards.Add(new Card() { id = cardNumber++, name = "DripNose", score = 0, turn = 0, portion = "Beard", skill = "" });
+            Cards.Add(new Card() { id = cardNumber++, name = "ClownNose", score = 0, turn = 0, portion = "Beard", skill = "" });
             // 咒語卡
             Cards.Add(new Card() { id = cardNumber++, name = "01 快手", score = 0, turn = 0, portion = "咒語", skill = "抽一張牌且下回合可以額外打出一張牌" });
             Cards.Add(new Card() { id = cardNumber++, name = "02 奇數驚奇", score = 0, turn = 0, portion = "咒語", skill = "抽一張牌且下回合可以額外打出一張牌" });
