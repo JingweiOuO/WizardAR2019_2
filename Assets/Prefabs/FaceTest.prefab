@@ -1963,6 +1963,7 @@ GameObject:
   - component: {fileID: 5079296709638969754}
   - component: {fileID: 235245268261912481}
   - component: {fileID: 1534978912107026314}
+  - component: {fileID: 1200810177001702265}
   m_Layer: 0
   m_Name: FaceTest
   m_TagString: Untagged
@@ -2088,6 +2089,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1200810177001702265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8951642236173267472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c253d2f1401c464da295f54c41a3f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Origin: {x: 0, y: 0, z: 0}
 --- !u!1 &9168329163145843004
 GameObject:
   m_ObjectHideFlags: 0

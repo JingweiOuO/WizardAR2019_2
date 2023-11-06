@@ -12,9 +12,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
 using HashTable = ExitGames.Client.Photon.Hashtable;
-
-// Hello. Thank you for purchasing Asset. In this set, the pulled cards are moved to the hand part and aligned at regular intervals.
-// This script is not the correct answer, so please consider it as one of the implementation scripts. Thank you.
+using SimpleCardDrawAndSpread_FaceTest;
 
 namespace SimpleCardDrawAndSpread_CardDrag
 {
@@ -89,6 +87,7 @@ namespace SimpleCardDrawAndSpread_CardDrag
         [HideInInspector]public float targetTime = 60f;
         [HideInInspector]public bool isTimeup = false;
         [HideInInspector]Dictionary<string,bool> faceDictionary = new Dictionary<string,bool>{};
+        [HideInInspector]FaceTest _FaceTest;
         // Start is called before the first frame update
         void Start()
         {
@@ -99,6 +98,7 @@ namespace SimpleCardDrawAndSpread_CardDrag
             InitPlayer();
             InitDictionary();
             photonView = GetComponent<PhotonView>();
+            _FaceTest = new FaceTest();
             StartCoroutine(PlayerCardDrawManager(FirstDrawCount));
         }
 
@@ -422,12 +422,16 @@ namespace SimpleCardDrawAndSpread_CardDrag
                             }
                         }
                         else{
+                            //計算分數
                             totalScore += RemoveCardList[i].score;
                             _CardDictionary.FlagCombinationId(RemoveCardList[i].name);
                             totalScore += _CardDictionary.CombinationBonus();
                             Debug.Log("score: " + totalScore);
-
+                            
                             //臉部位置有卡片生效
+                            if(PlayerID == 1){
+                                _FaceTest.printObject(RemoveCardList[i].name);
+                            }
                             if(faceDictionary.ContainsKey(RemoveCardList[i].portion)){
                                 faceDictionary[RemoveCardList[i].portion] = true;
                             }
@@ -461,11 +465,15 @@ namespace SimpleCardDrawAndSpread_CardDrag
                             }
                         }
                         else{
+                            //計算分數
                             totalScore2 += RemoveCardList2[i].score;
                             _CardDictionary.FlagCombinationId(RemoveCardList2[i].name);
                             totalScore2 += _CardDictionary.CombinationBonus();
                             Debug.Log("Score: " + totalScore2);
-                        
+                            //臉部生效
+                            if(PlayerID == 2){
+                                _FaceTest.printObject(RemoveCardList2[i].name);
+                            }
                             //臉部位置有卡片生效
                             if(faceDictionary.ContainsKey(RemoveCardList2[i].portion)){
                                 faceDictionary[RemoveCardList2[i].portion] = true;
