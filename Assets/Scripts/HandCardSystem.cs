@@ -5,6 +5,7 @@ using SimpleCardDrawAndSpread_CardDrag;
 using Photon.Pun;
 using Photon.Realtime;
 using System;
+using UnityEngine.UI;
 
 namespace SimpleCardDrawAndSpread_HandCard
 {
@@ -35,14 +36,20 @@ namespace SimpleCardDrawAndSpread_HandCard
         [Header("Card Draw Move")]
         public bool FirstDrawTrigger;
         public bool HandSpreadTrigger;
-        
+
         //同步相關變數
         private int PlayerID;
-        private bool round = false ;
+        private bool round = false;
         private bool round2 = false;
         private float timer = 0f;
         private float targetTime = 60f;
         private bool isTimeup;
+
+        public Text text;
+
+        private Camera arCamera;
+        private bool isObjectSelected = false; // 是否選擇物體
+        private float distanceToCamera; // 距離
 
         // Start is called before the first frame update
         void Start()
@@ -50,6 +57,11 @@ namespace SimpleCardDrawAndSpread_HandCard
             //CardDrawSystem script recall settings.
             _CardDrawSystem = FindObjectOfType<CardDrawSystem>();
             PlayerID = _CardDrawSystem.PlayerID;
+
+            arCamera = Camera.main;
+
+            // 計算距離
+            distanceToCamera = Vector3.Distance(transform.position, arCamera.transform.position);
         }
 
         // Update is called once per frame
@@ -70,10 +82,49 @@ namespace SimpleCardDrawAndSpread_HandCard
                         HandCardNumber = i;
                     }
                 }
-                if(_CardDrawSystem.isPause){
+                if (_CardDrawSystem.isPause)
+                {
 
                 }
                 AutoMove_SpreadMove_Manager();
+            }
+
+            if (Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
+
+                if (touch.phase == TouchPhase.Began)
+                {
+                    Ray ray = arCamera.ScreenPointToRay(touch.position);
+                    RaycastHit hit;
+
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        // 檢測有沒有射到物體
+                        if (hit.collider.gameObject == gameObject)
+                        {
+                            isObjectSelected = true;
+                            text.text = gameObject.name;
+                        }
+                    }
+                }
+
+                // 移動
+                if (touch.phase == TouchPhase.Moved && isObjectSelected)
+                {
+                    // 計算交點
+                    Ray ray = arCamera.ScreenPointToRay(touch.position);
+                    Vector3 rayPoint = ray.GetPoint(distanceToCamera);
+
+                    // 移動物體
+                    transform.position = rayPoint;
+                }
+
+                // 觸摸結束
+                if (touch.phase == TouchPhase.Ended)
+                {
+                    isObjectSelected = false;
+                }
             }
 
         }
@@ -118,6 +169,7 @@ namespace SimpleCardDrawAndSpread_HandCard
             }
         }
 
+        /*
         //For mouse input, it works when CardUseLock is false. CardUseLock is usually used as true when automatic movement or when it is not your turn.
         private void OnMouseDown()
         {
@@ -179,7 +231,7 @@ namespace SimpleCardDrawAndSpread_HandCard
                 {
                     Debug.Log("OnMoseUp");
                     _CardDrawSystem.AddRemoveCard(HandCardNumber);
-                    Destroy(this.gameObject);   
+                    Destroy(this.gameObject);
                 }
                 else
                 {
@@ -188,5 +240,6 @@ namespace SimpleCardDrawAndSpread_HandCard
                 }
             }
         }
+        */
     }
 }
